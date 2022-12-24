@@ -1,0 +1,337 @@
+#IMPORTANT: command parameters must have the same variable names throughout all the scripts (penbot.kv -> commands.py -> bot.py)
+<PopupContent>:
+    size_hint: 1, None
+    BoxLayout:
+        orientation: 'vertical'
+        id: list_cmmnds_popup
+        size_hint: 1, None
+        height: self.minimum_height
+
+<SavePopupContent>:
+    size_hint: 1, None
+    BoxLayout:
+        id: list
+        MDLabel:
+            text: 'Do you want to save your script? If yes, type its name here:'
+        MDTextField:
+            id: save_name
+
+<Script>:
+    size_hint: 1, None
+    ImageLeftWidget:
+        source: 'icons/script.png'
+
+    IconRightWidget:
+        icon: "play"
+        on_release: app.play_script_with_threading(root)
+
+<ForLoopStartContent>:
+    size_hint: 1, None
+    cols: 2
+    MDLabel:
+        text: 'Iterations Amount: '
+    MDTextField:
+        id: iters
+        
+<MoveContent>:
+    padding: 10
+    spacing: 15
+    cols: 2
+    size_hint: 1, None
+    MDLabel:
+        text: "Axis: "
+        size_hint: 0.5, 1
+        pos_hint: {'x': 0.5, 'y': 0.5}
+    MDTextField:
+        id: axis
+        hint_text: "x or feet_y or z"
+        multiline: False
+        size_hint: 0.5, None
+        height: 10
+
+    MDLabel:
+        text: "Blocks Amount: "
+        size_hint: 0.5, 1
+        pos_hint: {'x': 0.5, 'y': 0.5}
+    MDTextField:
+        id: steps
+        hint_text: "Enter the amount of block you wanna go.."
+        multiline: False
+        size_hint: 0.5, None
+        height: 10
+
+<WriteMessageContent>:
+    padding: 10
+    spacing: 15
+    size_hint: 1, None
+    cols: 2
+    MDLabel:
+        text: "Chat Message(or command):"
+        pos_hint: {'y': 0.5}
+    MDTextField:
+        id: message
+        multiline: False
+        pos_hint: {'y': 0.5}
+        hint_text: "message to send.."
+        size_hint: 0.5, None
+        height: 10
+
+<DelayContent>:
+    padding: 10
+    spacing: 15
+    size_hint: 1, None
+    cols: 2
+    MDLabel:
+        text: 'Delay: '
+        size_hint: 0.5, 1
+        pos_hint: {'y': 0.5}
+    MDTextField:
+        id: delay
+        multiline: False
+        pos_hint: {'y': 0.5}
+        hint_text: "delay between commands(seconds).."
+        size_hint: 0.5, None
+        height: 10
+
+<ConnectBotContent>:
+    padding: 10
+    spacing: 15
+    cols: 4
+    size_hint: 1, None
+    height: 200
+    MDLabel:
+        text: 'Nickname'
+        size_hint: 0.5, 1
+        pos_hint: {'x': 0.5, 'y': 0.5}
+    MDTextField:
+        id: username
+        multiline: False
+        hint_text: "bot's nickname.."
+        size_hint: 0.5, None
+        height: 10
+
+    MDLabel:
+        text: 'IP'
+        size_hint: 0.5, 1
+        pos_hint: {'x': 0.5, 'y': 0.5}
+    MDTextField:
+        id: ip
+        multiline: False
+        hint_text: "server's ip.."
+        size_hint: 0.5, None
+        height: 10
+
+    MDLabel:
+        text: 'Port'
+        size_hint: 0.5, 1
+        pos_hint: {'x': 0.5, 'y': 0.5}
+    MDTextField:
+        id: port
+        multiline: False
+        hint_text: "server's port.."
+        size_hint: 0.5, None
+        height: 10
+
+<PlaceBlockContent>:
+    cols: 4
+    spacing: 15
+    padding: 10
+    size_hint: 1, None
+    height: self.minimum_height
+    MDLabel:
+        text: 'Offsets(blocks amount) relatively to the bot:'
+        size_hint: 0.2, 0.5
+    MDTextField:
+        hint_text: 'offset x axis'
+        id: place_offset_x
+        multiline: False
+    MDTextField:
+        hint_text: 'offset y axis'
+        id: place_offset_y
+        multiline: False
+    MDTextField:
+        hint_text: 'offset z axis'
+        id: place_offset_z
+        multiline: False
+    MDLabel:
+        text: "Blockface(which is in front):"
+        size_hint: None, None
+    MDTextField:
+        hint_text: 'top/bottom/north/south/east/west'
+        id: blockface_str
+        multiline: False
+
+<DigBlockContent>:
+    cols: 4
+    spacing: 15
+    padding: 10
+    size_hint: 1, None
+    height: self.minimum_height
+    MDLabel:
+        text: 'Offsets(blocks amount) relatively to the bot:'
+        size_hint: 0.2, 0.5
+    MDTextField:
+        hint_text: 'offset x axis'
+        id: dig_offset_x
+        multiline: False
+    MDTextField:
+        hint_text: 'offset y axis'
+        id: dig_offset_y
+        multiline: False
+    MDTextField:
+        hint_text: 'offset z axis'
+        id: dig_offset_z
+        multiline: False
+    MDLabel:
+        text: "Digging time"
+        size_hint: 0.2, 0.5
+    MDTextField:
+        hint_text: 'depends on item bot is holding'
+        id: dig_time
+        multiline: False
+
+<ListXrayContent>:
+    cols: 2
+    spacing: 15
+    padding: 10
+    size_hint: 1, None
+    height: self.minimum_height
+    MDLabel:
+        text: 'File Name:'
+        size_hint: 0.2, 0.5
+    MDTextField:
+        hint_text: 'example: blocks.txt'
+        id: file_name
+        multiline: False
+    MDLabel:
+        text: 'Region Directory:'
+        size_hint: 0.2, 0.5
+    MDTextField:
+        hint_text: 'example: download_world/world/region'
+        id: wd
+        multiline: False
+    MDLabel:
+        text: "Blocks Limit"
+        size_hint: 0.2, 0.5
+    MDTextField:
+        hint_text: '(number of blocks to parse)'
+        id: blocks_limit
+        multiline: False
+    MDLabel:
+        text: 'Wanted Blocks'
+        size_hint: 0.2, 0.5 #TODO put this values into variable
+    MDTextField:
+        hint_text: 'example: diamond_ore, coal_ore'
+        id: wanted_blocks
+        multiline: False
+
+<OpContent>:
+    cols: 2
+    spacing: 15
+    padding: 10
+    size_hint: 1, None
+    height: self.minimum_height
+    MDLabel:
+        text: "Player Name:"
+        size_hint: 0.2, 0.5
+    MDTextField:
+        hint_text: '"PythonProgrammer" is the only option for now.'
+        text: "PythonProgrammer"
+        id: player
+        multiline: False
+        disabled: True
+    MDLabel:
+        text: "SSH Host IP:"
+        size_hint: 0.2, 0.5
+    MDTextField:
+        id: op_ssh_host
+        multiline: False
+
+<ReverseShellContent>:
+    cols: 2
+    spacing: 15
+    padding: 10
+    size_hint: 1, None
+    height: self.minimum_height
+    MDLabel:
+        text: "Target's OS:"
+        size_hint: 0.2, 0.5
+    MDTextField:
+        hint_text: '"Windows" is the only option for now.'
+        text: "Windows"
+        id: target_os
+        multiline: False
+        disabled: True
+    MDLabel:
+        text: "SSH Host IP:"
+        size_hint: 0.2, 0.5
+    MDTextField:
+        hint_text: 'Server which hosts the exploit.'
+        id: rce_ssh_host
+        multiline: False
+    MDLabel:
+        text: "SSH Password:"
+        size_hint: 0.2, 0.5
+    MDTextField:
+        id: ssh_password
+        multiline: False
+
+<Item>:
+    on_release: app.cmmnd_add(self)
+    ImageLeftWidget:
+        source: root.source
+
+<CommandWithoutParameters>:
+    ImageLeftWidget:
+        source: root.source
+
+MDBottomNavigation:
+    MDBottomNavigationItem:
+        name: "play"
+        text: "Play"
+        icon: "play"
+        FloatLayout:
+            ScrollView:
+                BoxLayout:
+                    id: list_scripts
+                    orientation: 'vertical'
+                    size_hint: 1, None
+                    height: self.minimum_height
+    MDBottomNavigationItem:
+        name: "scripting"
+        text: "Scripting"
+        icon: 'text'
+        FloatLayout:
+            ScrollView:
+                BoxLayout:
+                    id: list_cmmnds
+                    orientation: 'vertical'
+                    size_hint: 1, None
+                    height: self.minimum_height
+            MDFloatingActionButton:
+                icon: 'plus'
+                theme_text_color: "Custom"
+                text_color: app.theme_cls.primary_color
+                md_bg_color: app.theme_cls.accent_color
+                size_hint: None, None
+                size: 50, 50
+                pos_hint: {'x': 0.9, 'y': 0.05}
+                on_release: app.cmmnd_popup()
+            MDFloatingActionButton:
+                icon: 'check'
+                theme_text_color: "Custom"
+                text_color: app.theme_cls.primary_color
+                md_bg_color: app.theme_cls.accent_color
+                size_hint: None, None
+                size: 40, 40
+                pos_hint: {'x': 0.905, 'y': 0.2}
+                on_release: app.save_popup()
+            MDFloatingActionButton:
+                icon: 'close'
+                theme_text_color: "Custom"
+                text_color: app.theme_cls.primary_color
+                md_bg_color: app.theme_cls.accent_color
+                size_hint: None, None
+                size: 40, 40
+                pos_hint: {'x': 0.905, 'y': 0.325}
+                on_release: app.clear_script()

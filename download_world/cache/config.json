@@ -1,0 +1,20 @@
+{
+  "authMethod": "AUTOMATIC",
+  "server": "play.lastcraft.net",
+  "portRemote": 25565,
+  "portLocal": 25565,
+  "extendedRenderDistance": 0,
+  "measureRenderDistance": false,
+  "levelSeed": 0,
+  "worldOutputDir": "world",
+  "centerX": 0,
+  "centerZ": 0,
+  "zoomLevel": 75,
+  "renderOtherPlayers": false,
+  "disableWriteChunks": false,
+  "disableWorldGen": false,
+  "disableSrvLookup": false,
+  "disableMarkUnsavedChunks": false,
+  "ignoreBlockChanges": false,
+  "disableInfoMessages": false
+}

